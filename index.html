@@ -805,8 +805,14 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-v
   color:var(--ink);margin-top:20px}
 .ax-about-text p{margin:0 0 16px}.ax-about-text p:last-child{margin:0}
 
-/* The four figures, across rather than two by two. */
-.ax-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+/* The four figures, across rather than two by two — and each one only as wide
+   as what it holds. They used to be four equal columns filling the wrap's
+   1360, which left the price range, the longest of them, with half a tile of
+   empty blue to its right and the whole row the widest thing on a page whose
+   text is an 880px column. max-content sizes each tile to its own figure, and
+   the row comes out around 950 — the text's measure, near enough. */
+.ax-stats{display:grid;grid-template-columns:repeat(4,max-content);
+  justify-content:center;gap:20px;margin:48px auto 0}
 /* Filled in the family blue rather than white cards floating on near-white.
    The band they sit in is --paper and the cards were --white with a soft
    shadow: four steps of difference, which on a bright screen is four cards you
