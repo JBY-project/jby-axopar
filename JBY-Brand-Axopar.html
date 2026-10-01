@@ -891,7 +891,13 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-v
 /* The gap to the cards is the home page's: the title row sits 29px above
    them, counting the 9px the heading is centred by inside a row the
    button's height sets, and the 4px the strip keeps on top. */
-.ax-listings-head{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:16px}
+.ax-listings-head{display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:16px}
+/* The way out of the section reads better after the cards than beside the
+   title, where it held the far end of a row and left the title unable to sit in
+   the middle of it. The home page's strips do it this way — see .s-link-row
+   there; this is the same row under another name, because the brand page's
+   button is the page's own .ax-btn rather than the home page's .s-link. */
+.ax-link-row{display:flex;justify-content:center;margin-top:28px}
 .ax-strip-wrap{position:relative}
 /* Horizontal carousel: cards sit side-by-side, grow on hover, strip scrolls sideways */
 .ax-strip{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;
@@ -1033,7 +1039,7 @@ body.cx-lock{overflow:hidden}
   .ax-model-arr{width:40px;height:40px}
   .ax-model-arr.prev{left:4px}
   .ax-model-arr.next{right:4px}
-  .ax-listings-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:16px}
+  .ax-listings-head{align-items:center;gap:12px;margin-bottom:16px}
   .ax-strip{gap:16px;scroll-snap-type:x mandatory}
   /* Slightly wider listing cards on mobile */
   .ax-strip .vessel-card{flex-basis:min(84vw,340px);scroll-snap-align:start}
@@ -1389,7 +1395,6 @@ footer.jby-footer{background:var(--navy,#41647b);padding:36px 40px 32px;
   <div class="ax-wrap">
     <div class="ax-listings-head reveal">
       <h2 class="ax-h2">Listings Axopar Yachts</h2>
-      <a class="ax-btn ax-btn-ghost-dark" href="#">View Full Listing</a>
     </div>
     <div class="ax-strip-wrap">
       <div class="ax-strip" id="ax-strip">
@@ -1439,6 +1444,9 @@ footer.jby-footer{background:var(--navy,#41647b);padding:36px 40px 32px;
         </article>
       </div>
       <button class="cards-scroll-arr" aria-label="More listings" onclick="axStripScroll(1)"><i class="ti ti-chevron-right"></i></button>
+    </div>
+    <div class="ax-link-row reveal">
+      <a class="ax-btn ax-btn-ghost-dark" href="#">View Full Listing</a>
     </div>
   </div>
 </section>
